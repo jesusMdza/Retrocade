@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 const NavigationBar = ({ navigation }) => {
   const goToHome = () => navigation.navigate('Home');
   const goToProfile = () => navigation.navigate('Profile');
-  const goToCamera = () => navigation.navigate('Camera');
+  const goToScanner = () => navigation.navigate('Scanner');
 
   return (
     <View style={styles.container}>
@@ -14,7 +14,7 @@ const NavigationBar = ({ navigation }) => {
       <TouchableOpacity onPress={goToProfile} style={styles.button}>
         <Text style={styles.tab}>Profile</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={goToCamera} style={styles.button} >
+      <TouchableOpacity onPress={goToScanner} style={styles.button} >
         <Text style={styles.tab}>Scan</Text>
       </TouchableOpacity>
     </View>

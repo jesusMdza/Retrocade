@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet, Button, Dimensions } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
-const Camera = () => {
+const Scanner = () => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
@@ -29,6 +29,7 @@ const Camera = () => {
     <View style={styles.container}>
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+        barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
         style={StyleSheet.absoluteFillObject}
       />
       {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
@@ -36,12 +37,37 @@ const Camera = () => {
   );
 }
 
+const opacity = 'rgba(0, 0, 0, .6)';
 const styles = StyleSheet.create({
   container: {
+    width: 'auto',
+    height: 'auto',
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
+    flexDirection: 'column'
   },
+  // layerTop: {
+  //   flex: 2,
+  //   backgroundColor: opacity
+  // },
+  // layerCenter: {
+  //   flex: 1,
+  //   flexDirection: 'row'
+  // },
+  // layerLeft: {
+  //   flex: 1,
+  //   backgroundColor: opacity
+  // },
+  // focused: {
+  //   flex: 3
+  // },
+  // layerRight: {
+  //   flex: 1,
+  //   backgroundColor: opacity
+  // },
+  // layerBottom: {
+  //   flex: 2,
+  //   backgroundColor: opacity
+  // },
 });
 
-export default Camera;
+export default Scanner;

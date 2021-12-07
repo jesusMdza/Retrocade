@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Header = () => {
+const Header = ({ text }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Retrocade</Text>
+      <Text style={styles.text}>{ text }</Text>
     </View>
   );
 }
@@ -18,8 +18,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontFamily: 'sans-serif',
     fontWeight: 'bold',
-    color: 'red',
-    paddingTop: 50,
+    color: 'red'
   },
 });
 

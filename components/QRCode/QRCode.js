@@ -8,7 +8,7 @@ const QRCode = () => {
       <Image 
         style={styles.QRCode}
         source={{
-          uri: 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=jesus&mendoza'
+          uri: 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=jesusmendoza'
         }}
       />
     </View>

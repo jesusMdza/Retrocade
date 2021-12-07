@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from './components/Tabs/Home/Home';
-import Camera from './components/Tabs/Camera/Camera';
+import Scanner from './components/Tabs/Scanner/Scanner';
 import Profile from './components/Tabs/Profile/Profile';
 
 const App = () => {
@@ -26,12 +26,12 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Profile">
           { props => <Profile {...props} currentUser={currentUser} /> }
         </Stack.Screen>
-        <Stack.Screen name="Camera" component={Camera} />
+        <Stack.Screen name="Scanner" component={Scanner} />
       </Stack.Navigator>
     </NavigationContainer>
   );

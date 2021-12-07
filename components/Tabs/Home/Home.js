@@ -8,7 +8,7 @@ import NavigationBar from '../../NavigationBar/NavigationBar';
 const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Header />
+      <Header text="Retrocade" />
       <QRCode />
       <NavigationBar navigation={navigation} />
     </View>
@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'space-between',
-  }
+    paddingTop: 50
+  },
 });
 
 export default Home;
