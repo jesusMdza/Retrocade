@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 const Header = ({ text }) => {
   return (
     <View style={styles.container}>
-      <Text style={[{ fontFamily: 'PressStart2P', fontSize: 30 }, styles.text]}>{ text }</Text>
+      <Text style={[{ fontFamily: 'Orbitron_900Black' }, styles.text]}>{ text }</Text>
     </View>
   );
 }
@@ -15,9 +15,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   text: {
-    color: 'red',
+    fontSize: 35,
+    color: '#cef246',
     paddingTop: 20,
-    paddingBottom: 130
+    paddingBottom: 100,
+    textTransform: 'uppercase'
   },
 });
 

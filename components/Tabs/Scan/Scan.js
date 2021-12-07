@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button, Dimensions } from 'react-native';
+import { View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 const Scanner = ({ database, currentUser }) => {
@@ -43,37 +43,13 @@ const Scanner = ({ database, currentUser }) => {
   );
 }
 
-const opacity = 'rgba(0, 0, 0, .6)';
 const styles = StyleSheet.create({
   container: {
     width: 'auto',
     height: 'auto',
     flex: 1,
     flexDirection: 'column'
-  },
-  // layerTop: {
-  //   flex: 2,
-  //   backgroundColor: opacity
-  // },
-  // layerCenter: {
-  //   flex: 1,
-  //   flexDirection: 'row'
-  // },
-  // layerLeft: {
-  //   flex: 1,
-  //   backgroundColor: opacity
-  // },
-  // focused: {
-  //   flex: 3
-  // },
-  // layerRight: {
-  //   flex: 1,
-  //   backgroundColor: opacity
-  // },
-  // layerBottom: {
-  //   flex: 2,
-  //   backgroundColor: opacity
-  // },
+  }
 });
 
 export default Scanner;
