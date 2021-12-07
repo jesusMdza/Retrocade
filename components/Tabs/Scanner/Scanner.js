@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button, Dimensions } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
-const Scanner = () => {
+const Scanner = ({ database, currentUser }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
@@ -15,7 +15,13 @@ const Scanner = () => {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    const foundUser = database.find(user => user.email == data);
+
+    if (foundUser) {
+      alert(`Welcome back ${foundUser.firstName}!`);
+    } else {
+      alert(`This user is not currently enrolled. Please try scanning again.`);
+    }
   };
 
   if (hasPermission === null) {

@@ -7,9 +7,10 @@ import Header from '../../Header/Header';
 const Profile = ({ navigation, currentUser }) => {
   return (
     <View style={styles.container}>
-      <Header text={`Profile`}/>
+      <Header text={`Profile`} />
       <Image src="" style={styles.profilePicture} />
-      <NavigationBar navigation={navigation} />
+      <Text style={styles.subtitle}>{ currentUser.firstName }</Text>
+      {/* <NavigationBar navigation={navigation} /> */}
     </View>
   );
 }
@@ -18,12 +19,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'space-between',
     paddingTop: 50,
   },
+  subtitle: {
+    flexDirection: 'row',
+    fontSize: 30,
+  },
   profilePicture: {
-    width: 20,
-    height: 20,
+    width: 80,
+    height: 80,
+    backgroundColor: 'gray',
+    borderRadius: 100 / 2
   }
 });
 

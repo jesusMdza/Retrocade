@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontFamily: 'sans-serif',
     fontWeight: 'bold',
-    color: 'red'
+    color: 'red',
+    paddingBottom: 150
   },
 });
 
