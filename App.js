@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from './components/Tabs/Home/Home';
-import Profile from './components/Tabs/Profile/Profile';
-import NavigationBar from './components/NavigationBar/NavigationBar';
 import Camera from './components/Tabs/Camera/Camera';
+import Profile from './components/Tabs/Profile/Profile';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -30,6 +28,9 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Profile">
+          { props => <Profile {...props} currentUser={currentUser} /> }
+        </Stack.Screen>
         <Stack.Screen name="Camera" component={Camera} />
       </Stack.Navigator>
     </NavigationContainer>

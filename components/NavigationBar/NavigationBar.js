@@ -2,20 +2,19 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 const NavigationBar = ({ navigation }) => {
+  const goToHome = () => navigation.navigate('Home');
+  const goToProfile = () => navigation.navigate('Profile');
+  const goToCamera = () => navigation.navigate('Camera');
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity onPress={goToHome} style={styles.button}>
         <Text style={styles.tab}>Home</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity onPress={goToProfile} style={styles.button}>
         <Text style={styles.tab}>Profile</Text>
       </TouchableOpacity>
-      <TouchableOpacity 
-        onPress={() =>
-          navigation.navigate('Camera')
-        }
-        style={styles.button} 
-      >
+      <TouchableOpacity onPress={goToCamera} style={styles.button} >
         <Text style={styles.tab}>Scan</Text>
       </TouchableOpacity>
     </View>
