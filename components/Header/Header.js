@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 const Header = ({ text }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{ text }</Text>
+      <Text style={[{ fontFamily: 'PressStart2P', fontSize: 30 }, styles.text]}>{ text }</Text>
     </View>
   );
 }
@@ -15,11 +15,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   text: {
-    fontSize: 30,
-    fontFamily: 'sans-serif',
-    fontWeight: 'bold',
     color: 'red',
-    paddingBottom: 150
+    paddingTop: 20,
+    paddingBottom: 130
   },
 });
 

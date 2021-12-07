@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 
 import Header from '../../Header/Header';
 import UserQRCode from '../../UserQRCode/UserQRCode';
-import NavigationBar from '../../NavigationBar/NavigationBar';
+// import NavigationBar from '../../NavigationBar/NavigationBar';
 
 const Home = ({ navigation }) => {
   return (

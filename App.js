@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useFonts } from 'expo-font';
 
 import Home from './components/Tabs/Home/Home';
 import Scanner from './components/Tabs/Scanner/Scanner';
@@ -17,7 +18,7 @@ const App = () => {
     setUser();
     fetchData();
   }, []);
-  
+
   const fetchData = () => {
     const allData = [];
     Object.keys(fakeData).map(key => allData.push(fakeData[key]));
@@ -32,6 +33,14 @@ const App = () => {
       "email": "jesus@mendoza.com",
       "code": "jesus&mendoza"
     });
+  }
+
+  const [loaded] = useFonts({
+    PressStart2P: require('./assets/fonts/PressStart2P/PressStart2P-Regular.ttf'),
+  });
+
+  if (!loaded) {
+    return null;
   }
 
   return (
