@@ -3,16 +3,12 @@ import { StyleSheet, View } from 'react-native';
 
 import Header from '../../Header/Header';
 import UserQRCode from '../../UserQRCode/UserQRCode';
-import TabBarBackground from '../../TabBarBackground/TabBarBackground';
-// import NavigationBar from '../../NavigationBar/NavigationBar';
 
 const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Header text="Retrocade" />
       <UserQRCode />
-      <TabBarBackground />
-      {/* <NavigationBar navigation={navigation} /> */}
     </View>
   );
 }

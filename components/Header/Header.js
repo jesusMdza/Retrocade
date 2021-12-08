@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 const Header = ({ text }) => {
   return (
     <View style={styles.container}>
-      <Text style={[{ fontFamily: 'Orbitron_900Black' }, styles.text]}>{ text }</Text>
+      <Text style={styles.text}>{ text }</Text>
     </View>
   );
 }
@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
     color: '#cef246',
     paddingTop: 20,
     paddingBottom: 100,
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    fontFamily: 'Orbitron_900Black'
   },
 });
 

@@ -1145,6 +1145,11 @@
   resolved "https://registry.yarnpkg.com/@expo-google-fonts/orbitron/-/orbitron-0.2.0.tgz#773d2ac08b1d5af9701915d4f16639272e5b40db"
   integrity sha512-AKAGnlnj+4AFTFHl/Jz4PPzcO0qBcWJAaoKtIac7acaxTgfuoY8+fmXFhe6Hnw51CaVKBEnLHbDA0k9N/u8i5A==
 
+"@expo-google-fonts/teko@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/teko/-/teko-0.2.0.tgz#05b783ab4ed124ae4c1421bbe298c1640620ddbd"
+  integrity sha512-+oAMqjsCuFgag5f2094n/pDtRI/dTUxzHXugVMi9n57/kQfqeYKPThvUt7HWhRl90ZES/kbCJAaZzlNKtMJPzw==
+
 "@expo/config-plugins@1.0.33", "@expo/config-plugins@^1.0.18":
   version "1.0.33"
   resolved "https://registry.yarnpkg.com/@expo/config-plugins/-/config-plugins-1.0.33.tgz#8ee78ea6f939f7e04606e9afa22b32139ea974a0"
