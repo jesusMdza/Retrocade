@@ -1,4 +1,6 @@
 # Retrocade
+An app for customers that are members
+
 Design References: 
 - https://dribbble.com/shots/16522231/attachments/11540591?mode=media
 By Permadi Satria Dewanto
