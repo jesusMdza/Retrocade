@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons, Ionicons, Feather } from '@expo/vector-icons'; 
+import uuid from 'react-native-uuid';
 
 const NavigationBar = ({ state, descriptors, navigation }) => {
   return (
     <View style={styles.customTabBar}>
-      <View style={styles.navigationBackground} />
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -45,6 +45,7 @@ const NavigationBar = ({ state, descriptors, navigation }) => {
 
         return (
           <TouchableOpacity
+            key={uuid.v4()}
             accessibilityRole="button"
             accessibilityState={isFocused ? { selected: true } : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
@@ -68,18 +69,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#cef246',
     position: 'relative',
-    bottom: 30
-  },
-  navigationBackground: {
-    flex: 1,
-    width: 100,
-    height: 100,
-    borderRadius: 100,
-    transform: [{ scale: 35 }],
-    backgroundColor: '#cef246',
-    position: 'absolute',
-    top: 1670,
-    left: 130
   },
   tabButton: {
     flex: 1, 
@@ -89,7 +78,6 @@ const styles = StyleSheet.create({
     color: '#000',
     paddingTop: 7,
     fontSize: 16,
-    fontFamily: 'Teko_500Medium'
   },
   dummyIcon: {
     width: 25,

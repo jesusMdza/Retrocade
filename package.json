@@ -10,8 +10,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@expo-google-fonts/orbitron": "^0.2.0",
-    "@expo-google-fonts/teko": "^0.2.0",
+    "@expo-google-fonts/space-mono": "^0.2.0",
     "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
@@ -27,6 +26,7 @@
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "3.0.0",
     "react-native-svg": "12.1.0",
+    "react-native-uuid": "^2.0.1",
     "react-native-web": "0.17.1"
   },
   "devDependencies": {

@@ -1,50 +1,67 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { useFonts, Orbitron_900Black } from '@expo-google-fonts/orbitron';
-import { Teko_300Light, Teko_400Regular, Teko_500Medium} from '@expo-google-fonts/teko';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useFonts, SpaceMono_400Regular, SpaceMono_700Bold } from '@expo-google-fonts/space-mono';
 import { StatusBar } from 'expo-status-bar';
 import AppLoading from 'expo-app-loading';
 
-import Home from './components/Tabs/Home/Home';
-import Scan from './components/Tabs/Scan/Scan';
-import Profile from './components/Tabs/Profile/Profile';
-import fakeData from './Data/User.json';
-import NavigationBar from './components/NavigationBar/NavigationBar';
+import Home from './src/screens/Home/Home';
+import Profile from './src/screens/Profile/Profile';
+import Scan from './src/screens/Scan/Scan';
+import NavigationBar from './src/components/NavigationBar/NavigationBar';
+import fakeUserData from './src/data/User.json';
+import fakeAchievementData from './src/data/Achievement.json';
 
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState({});
-  const [database, setDatabase] = useState([]);
+  const [userData, setUserData] = useState([]);
+  const [achievementData, setAchievementData] = useState([]);
 
   let [fontsLoaded] = useFonts({
-    Orbitron_900Black,
-    Teko_300Light,
-    Teko_400Regular,
-    Teko_500Medium
+    SpaceMono_400Regular,
+    SpaceMono_700Bold,
   });
 
   useEffect(() => {
-    setUser();
     fetchData();
+    setUser();
   }, []);
 
   const fetchData = () => {
-    const allData = [];
-    Object.keys(fakeData).map(key => allData.push(fakeData[key]));
-    setDatabase(allData);
+    const userData = [];
+    const achievementData = [];
+
+    Object.keys(fakeUserData).map(key => userData.push(fakeUserData[key]));
+    Object.keys(fakeAchievementData).map(key => achievementData.push(fakeAchievementData[key]));
+
+    setUserData(userData);
+    setAchievementData(achievementData);
   }
 
   const setUser = () => {
-    setCurrentUser({
-      "id": 23882190,
-      "firstName": "Jesus",
-      "lastName": "Mendoza",
-      "email": "jesus@mendoza.com",
-      "code": "jesus&mendoza"
+    let currentUser = {};
+    let loginId = 23882190;
+    const foundUser = fakeUserData.find(user => user.id === loginId);
+    const doesUserHaveAchievements = foundUser.achievementIds.count != 0
+
+    Object.keys(foundUser).forEach(key => {
+      currentUser[key] = foundUser[key]
     });
+
+    currentUser.achievements = [];
+
+    if (doesUserHaveAchievements) {
+      currentUser.achievementIds.forEach(id => {
+        const foundAchievement = fakeAchievementData.find(achievement => id == achievement.id);
+
+        currentUser.achievements.push(foundAchievement);
+      });
+    }
+
+    setCurrentUser(currentUser);
   }
 
   if (!fontsLoaded) {
@@ -52,23 +69,23 @@ const App = () => {
   } else {
     return (
       <NavigationContainer>
-        <Tab.Navigator 
-          tabBar={props => <NavigationBar {...props} />}
-          screenOptions={({ route }) => ({
-            headerShown: false,
-            tabBarStyle: { background: 'transparent', backgroundColor: '#0f1421', position: 'absolute', bottom: 10, border: 'none', }
-          })}
+        <Stack.Navigator 
+          // tabBar={props => <NavigationBar {...props} />}
+          // screenOptions={({ route }) => ({
+          //   headerShown: false,
+          //   tabBarStyle: { background: 'transparent', backgroundColor: '#0f1421', position: 'absolute', bottom: 10, border: 'none', }
+          // })}
         >
-          <Tab.Screen name="Home">
+          <Stack.Screen name="Home">
             { props => <Home {...props} currentUser={currentUser} /> }
-          </Tab.Screen>
-          <Tab.Screen name="Profile">
+          </Stack.Screen>
+          <Stack.Screen name="Profile">
             { props => <Profile {...props} currentUser={currentUser} /> }
-          </Tab.Screen>
-          <Tab.Screen name="Scan">
-            { props => <Scan {...props} database={database} currentUser={currentUser} /> }
-          </Tab.Screen>
-        </Tab.Navigator>
+          </Stack.Screen>
+          <Stack.Screen name="Scan">
+            { props => <Scan {...props} userData={userData} currentUser={currentUser} /> }
+          </Stack.Screen>
+        </Stack.Navigator>
         <StatusBar style="light" />
       </NavigationContainer>
     );

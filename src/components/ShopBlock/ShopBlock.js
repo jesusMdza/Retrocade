@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Header = ({ text }) => {
+const ShopBlock = ({ text }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{ text }</Text>
+      <Image src="img" />
     </View>
   );
 }
@@ -20,8 +20,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 100,
     textTransform: 'uppercase',
-    fontFamily: 'Orbitron_900Black'
   },
 });
 
-export default Header;
+export default ShopBlock;
