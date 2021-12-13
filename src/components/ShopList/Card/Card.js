@@ -4,9 +4,7 @@ import { StyleSheet, View, Image, Text } from 'react-native';
 const Card = ({ title, points, src }) => {
   return (
     <View style={styles.view}>
-      <Image source={{
-        uri: "./assets/shopItem.svg"
-      }}/>
+      <Image style={styles.image} source={require('../../../assets/shopItem.png')}/>
       <View style={styles.content}>
         <Text style={styles.title}>{ title }</Text>
         <Text style={styles.points}>Cost: { points } pt</Text>
@@ -43,6 +41,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'space-between'
+  },
+  image: {
+    flex: 1,
+    width: 'auto',
+    height: 100,
   }
 });
 

@@ -2,13 +2,13 @@
   {
     "id": 1,
     "title": "A Gamer Has Emerged",
-    "badgeSrc:": "someSrc",
+    "badgeSrc:": "../assets/star.png",
     "points": 10
   },
   {
     "id": 2,
     "title": "You Shall Not Pass",
-    "badgeSrc:": "someSrc",
+    "badgeSrc:": "../assets/line.png",
     "points": 15
   }
 ]

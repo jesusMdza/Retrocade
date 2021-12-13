@@ -4,8 +4,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 const Bar = ({ badgeSrc, title, points }) => {
   return (
     <View style={styles.view}>
-      {/* <Image src={badgeSrc} /> */}
-      <Text style={styles.title}>0</Text>
+      <Image source={require('../../../assets/line.png')} />
       <View style={styles.textView}>
         <Text style={styles.title}>{ title }</Text>
       </View>

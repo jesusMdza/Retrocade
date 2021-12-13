@@ -8,9 +8,7 @@ const Greeting = ({ currentUser }) => {
     <View style={styles.view}>
       <Image 
         style={styles.image}
-        source={{
-          uri: 'https://reactnative.dev/img/tiny_logo.png',
-        }} />
+        source={require('../../assets/invader.png')} />
       <Text style={styles.headline}>{`Greetings, ${firstName}!`}</Text>
       <View style={styles.block}>
         <Text style={styles.points}>{totalPoints}</Text>
@@ -48,8 +46,6 @@ const styles = StyleSheet.create({
     bottom: 10
   },
   image: {
-    width: 46,
-    height: 46,
     marginBottom: 21
   },
 });
