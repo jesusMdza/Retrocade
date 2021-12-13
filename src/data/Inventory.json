@@ -1,7 +1,8 @@
 [
   {
     "id": 551,
-    "title": "Shopping Item 1",
-    "src": ""
+    "title": "1-Level Booster",
+    "points": 500,
+    "src": "../assets/shopItem.svg"
   }
 ]

@@ -12,6 +12,7 @@ import Scan from './src/screens/Scan/Scan';
 import NavigationBar from './src/components/NavigationBar/NavigationBar';
 import fakeUserData from './src/data/User.json';
 import fakeAchievementData from './src/data/Achievement.json';
+import fakeInventoryData from './src/data/Inventory.json';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState({});
   const [userData, setUserData] = useState([]);
   const [achievementData, setAchievementData] = useState([]);
+  const [inventoryData, setInventoryData] = useState([]);
 
   let [fontsLoaded] = useFonts({
     SpaceMono_400Regular,
@@ -31,14 +33,17 @@ const App = () => {
   }, []);
 
   const fetchData = () => {
-    const userData = [];
-    const achievementData = [];
+    let userData;
+    let achievementData;
+    let inventoryData;
 
-    Object.keys(fakeUserData).map(key => userData.push(fakeUserData[key]));
-    Object.keys(fakeAchievementData).map(key => achievementData.push(fakeAchievementData[key]));
+    userData = Object.keys(fakeUserData).map(key => { return fakeUserData[key] });
+    achievementData = Object.keys(fakeAchievementData).map(key => { return fakeAchievementData[key] });
+    inventoryData = Object.keys(fakeInventoryData).map(key => { return fakeInventoryData[key] });
 
     setUserData(userData);
     setAchievementData(achievementData);
+    setInventoryData(inventoryData);
   }
 
   const setUser = () => {
@@ -70,14 +75,14 @@ const App = () => {
     return (
       <NavigationContainer>
         <Stack.Navigator 
-          // tabBar={props => <NavigationBar {...props} />}
-          // screenOptions={({ route }) => ({
-          //   headerShown: false,
-          //   tabBarStyle: { background: 'transparent', backgroundColor: '#0f1421', position: 'absolute', bottom: 10, border: 'none', }
-          // })}
+          tabBar={props => <NavigationBar {...props} />}
+          screenOptions={({ route }) => ({
+            headerShown: false,
+            tabBarStyle: { background: 'transparent', backgroundColor: '#0f1421', position: 'absolute', bottom: 10, border: 'none', }
+          })}
         >
           <Stack.Screen name="Home">
-            { props => <Home {...props} currentUser={currentUser} /> }
+            { props => <Home {...props} currentUser={currentUser} inventoryData={inventoryData} /> }
           </Stack.Screen>
           <Stack.Screen name="Profile">
             { props => <Profile {...props} currentUser={currentUser} /> }

@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 
+import NavigationBar from '../../components/NavigationBar/NavigationBar';
+
 const Profile = ({ navigation, currentUser }) => {
   return (
     <View style={styles.container}>

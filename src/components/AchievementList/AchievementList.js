@@ -20,9 +20,8 @@ const AchievementList = ({ currentUser }) => {
 
 const styles = StyleSheet.create({
   view: {
-    flex: 1,
     alignItems: 'stretch',
-    paddingBottom: 40
+    paddingBottom: 18
   },
   text: {
     color: '#fff',

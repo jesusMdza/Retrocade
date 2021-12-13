@@ -1,13 +1,18 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
 
 const Greeting = ({ currentUser }) => {
   const { firstName, totalPoints } = currentUser;
 
   return (
     <View style={styles.view}>
+      <Image 
+        style={styles.image}
+        source={{
+          uri: 'https://reactnative.dev/img/tiny_logo.png',
+        }} />
       <Text style={styles.headline}>{`Greetings, ${firstName}!`}</Text>
-      <View>
+      <View style={styles.block}>
         <Text style={styles.points}>{totalPoints}</Text>
         <Text style={styles.abbreviation}>pt</Text>
       </View>
@@ -17,9 +22,9 @@ const Greeting = ({ currentUser }) => {
 
 const styles = StyleSheet.create({
   view: {
-    paddingTop: 65,
-    paddingBottom: 83,
-    alignItems: 'center'
+    paddingTop: 70,
+    paddingBottom: 80,
+    alignItems: 'center',
   },
   achievementView: {
     alignItems: 'flex-start'
@@ -41,7 +46,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: -21,
     bottom: 10
-  }
+  },
+  image: {
+    width: 46,
+    height: 46,
+    marginBottom: 21
+  },
 });
 
 export default Greeting;

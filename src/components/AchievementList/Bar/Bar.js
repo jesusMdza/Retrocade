@@ -10,8 +10,7 @@ const Bar = ({ badgeSrc, title, points }) => {
         <Text style={styles.title}>{ title }</Text>
       </View>
       <View style={styles.pointsView}>
-        <Text style={styles.points}>{points}</Text>
-        <Text style={styles.abbreviation}>pt</Text>
+        <Text style={styles.points}>{points} pt</Text>
       </View>  
     </View>
   );
@@ -21,6 +20,7 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
     borderWidth: 2,
     borderRadius: 4,
@@ -38,18 +38,15 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     color: '#fff',
     fontFamily: 'SpaceMono_700Bold',
+    fontSize: 14
   },
   pointsView: {
     flexDirection: 'row'
   },
   points: {
+    fontSize: 12,
     color: '#8B8B8D',
     fontFamily: 'SpaceMono_400Regular',
-    paddingRight: 8
-  },
-  abbreviation: {
-    color: '#8B8B8D',
-    fontFamily: 'SpaceMono_400Regular'
   }
 });
 
