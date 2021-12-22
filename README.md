@@ -1,2 +1,2 @@
 # Retrocade
-An app exclusively for Retrocade members. Members can enter the arcade using a QR code scanned by employees.
+An app exclusively for Retrocade members. Members can enter a location using a QR code scanned by Retrocade employees. Built with React Native.
