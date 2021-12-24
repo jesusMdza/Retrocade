@@ -8,7 +8,8 @@ const Greeting = ({ currentUser }) => {
     <View style={styles.view}>
       <Image 
         style={styles.image}
-        source={require('../../assets/invader.png')} />
+        source={require('../../assets/invader.png')}
+      />
       <Text style={styles.headline}>{`Greetings, ${firstName}!`}</Text>
       <View style={styles.block}>
         <Text style={styles.points}>{totalPoints}</Text>

@@ -5,7 +5,7 @@ import NavigationBar from '../../components/NavigationBar/NavigationBar';
 
 const Profile = ({ navigation, currentUser }) => {
   return (
-    <View style={styles.container}>
+    <View style={styles.view}>
       <Image src="" style={styles.profilePicture} />
       <Text style={styles.subtitle}>{ currentUser.firstName }</Text>
     </View>
@@ -13,10 +13,10 @@ const Profile = ({ navigation, currentUser }) => {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  view: {
     flex: 1,
     backgroundColor: '#0f1421',
-    paddingTop: 50,
+    paddingTop: 34,
     alignItems: 'center'
   },
   subtitle: {

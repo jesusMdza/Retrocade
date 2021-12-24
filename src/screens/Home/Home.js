@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, Text } from 'react-native';
 
 import Greeting from '../../components/Greeting/Greeting';
 import AchievementList from '../../components/AchievementList/AchievementList';
@@ -9,6 +9,7 @@ import NavigationBar from '../../components/NavigationBar/NavigationBar';
 const Home = ({ currentUser, navigation, inventoryData }) => {
   return (
       <View style={styles.view}>
+        <NavigationBar />
         <Greeting currentUser={currentUser} />
         <AchievementList currentUser={currentUser} />
         <ShopList inventoryData={inventoryData} />
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
     backgroundColor: '#121114',
-    paddingTop: 50,
+    paddingTop: 34,
     paddingLeft: 16,
     paddingRight: 16,
   }

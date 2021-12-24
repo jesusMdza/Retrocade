@@ -1,13 +1,32 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import { MaterialCommunityIcons, Ionicons, Feather } from '@expo/vector-icons'; 
 import uuid from 'react-native-uuid';
 
 const NavigationBar = ({ state, descriptors, navigation }) => {
   return (
-    <View>
-      <View />
-      <View />
+    <View style={styles.view}>
+      <Image 
+        style={styles.profileImage}
+        source={require('../../assets/dummyProfile.png')}
+      />
+      <Image 
+        style={styles.qrIcon}
+        source={require('../../assets/qrIcon.png')}
+      />
+      {/* <TouchableOpacity
+        key={uuid.v4()}
+        accessibilityRole="button"
+        accessibilityState={isFocused ? { selected: true } : {}}
+        accessibilityLabel={options.tabBarAccessibilityLabel}
+        testID={options.tabBarTestID}
+        onPress={onPress}
+        onLongPress={onLongPress}
+        style={styles.tabButton}
+      >
+        <View style={styles.icon}>{icon[label]}</View>
+        <Text style={styles.tabButtonText}>{label.toUpperCase()}</Text>
+      </TouchableOpacity> */}
     </View>
     // <View style={styles.customTabBar}>
     //   {state.routes.map((route, index) => {
@@ -68,6 +87,10 @@ const NavigationBar = ({ state, descriptors, navigation }) => {
 }
 
 const styles = StyleSheet.create({
+  view: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
   customTabBar: {
     width: 'auto',
     flexDirection: 'row',
@@ -83,10 +106,14 @@ const styles = StyleSheet.create({
     paddingTop: 7,
     fontSize: 16,
   },
-  dummyIcon: {
-    width: 25,
-    height: 25,
-    backgroundColor: '#000'
+  profileImage: {
+    width: 32,
+    height: 32,
+    borderRadius: 4
+  },
+  qrIcon: {
+    width: 28,
+    height: 28
   }
 });
 
