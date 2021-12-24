@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-const Bar = ({ badgeSrc, title, points }) => {
+const Bar = ({ title, points, file }) => {
+
   return (
     <View style={styles.view}>
-      <Image source={require('../../../assets/line.png')} />
+      <Image source={file} />
       <View style={styles.textView}>
         <Text style={styles.title}>{ title }</Text>
       </View>

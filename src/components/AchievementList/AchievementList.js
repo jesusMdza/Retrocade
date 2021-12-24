@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, View, FlatList, Text } from 'react-native';
 
 import Bar from './Bar/Bar';
@@ -12,7 +12,8 @@ const AchievementList = ({ currentUser }) => {
       <FlatList 
         style={styles.list}
         data={achievements}
-        renderItem={({ item }) => (<Bar badgeSrc={item.badgeSrc} title={item.title} points={item.points} />)}
+        renderItem={({ item }) => (<Bar title={item.title} points={item.points} file={item.file} />)}
+        keyExtractor={item => item.id}
       />
     </View>
   );

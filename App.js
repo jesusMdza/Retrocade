@@ -11,7 +11,7 @@ import Profile from './src/screens/Profile/Profile';
 import Scan from './src/screens/Scan/Scan';
 import NavigationBar from './src/components/NavigationBar/NavigationBar';
 import fakeUserData from './src/data/User.json';
-import fakeAchievementData from './src/data/Achievement.json';
+import fakeAchievementData from './src/data/Achievement.js';
 import fakeInventoryData from './src/data/Inventory.json';
 
 const Stack = createNativeStackNavigator();
@@ -50,23 +50,26 @@ const App = () => {
     let currentUser = {};
     let loginId = 23882190;
     const foundUser = fakeUserData.find(user => user.id === loginId);
-    const doesUserHaveAchievements = foundUser.achievementIds.count != 0
 
     Object.keys(foundUser).forEach(key => {
       currentUser[key] = foundUser[key]
     });
 
-    currentUser.achievements = [];
+    getUserAchievements(currentUser);
+    setCurrentUser(currentUser);
+  }
+
+  const getUserAchievements = (user) => {
+    user.achievements = [];
+    const doesUserHaveAchievements = user.achievementIds.count != 0;
 
     if (doesUserHaveAchievements) {
-      currentUser.achievementIds.forEach(id => {
+      user.achievementIds.forEach(id => {
         const foundAchievement = fakeAchievementData.find(achievement => id == achievement.id);
 
-        currentUser.achievements.push(foundAchievement);
+        user.achievements.push(foundAchievement);
       });
     }
-
-    setCurrentUser(currentUser);
   }
 
   if (!fontsLoaded) {
