@@ -6,8 +6,8 @@ const UserQRCode = () => {
   return (
       <View style={styles.outerBox}>
         <QRCode
-          value="jesus@mendoza.com"
-          size={180}
+          value="janet@parker.com"
+          size={173}
         />
       </View>
   );

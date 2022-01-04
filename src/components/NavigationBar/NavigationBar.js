@@ -11,6 +11,9 @@ const NavigationBar = () => {
       <TouchableOpacity>
         <Image style={styles.profileImage} source={require('../../assets/profileImage.png')} />
       </TouchableOpacity>
+      <TouchableOpacity onPress={() => setIsModalVisible(true)}>
+        <Image style={styles.qrIcon} source={require('../../assets/qrIcon.png')} />
+      </TouchableOpacity>
       <Modal
         transparent={true}
         visible={isModalVisible}
@@ -25,9 +28,6 @@ const NavigationBar = () => {
           </TouchableWithoutFeedback>
         </TouchableOpacity>
       </Modal>
-      <TouchableOpacity onPress={() => setIsModalVisible(true)}>
-        <Image style={styles.qrIcon} source={require('../../assets/qrIcon.png')} />
-      </TouchableOpacity>
     </View>
   );
 }
@@ -35,31 +35,18 @@ const NavigationBar = () => {
 const styles = StyleSheet.create({
   view: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  customTabBar: {
-    width: 'auto',
-    flexDirection: 'row',
-    backgroundColor: '#cef246',
-    position: 'relative',
-  },
-  tabButton: {
-    flex: 1, 
-    alignItems: 'center',
-  },
-  tabButtonText: {
-    color: '#000',
-    paddingTop: 7,
-    fontSize: 16,
+    justifyContent: 'space-between',
   },
   profileImage: {
     width: 32,
     height: 32,
-    borderRadius: 4
+    borderRadius: 4,
+    left: 0,
   },
   qrIcon: {
     width: 28,
-    height: 28
+    height: 28,
+    right: 0
   },
   centeredView: {
     flex: 1,

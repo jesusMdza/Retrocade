@@ -10,19 +10,14 @@ const Home = ({ currentUser, navigation, inventoryData }) => {
   return (
       <View style={styles.view}>
         <NavigationBar />
-        <Greeting currentUser={currentUser} />
-        <AchievementList currentUser={currentUser} />
-        <ShopList inventoryData={inventoryData} />
+        <ScrollView>
+          <Greeting currentUser={currentUser} />
+          <AchievementList currentUser={currentUser} />
+          <ShopList inventoryData={inventoryData} />
+        </ScrollView>
       </View>
   );
 }
-
-// const ListFooterComponent = {
-//   <View>
-//     <Greeting currentUser={currentUser} />
-//     <AchievementList currentUser={currentUser} />
-//   </View>
-// }
 
 const styles = StyleSheet.create({
   view: {
@@ -30,7 +25,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#121114',
     paddingTop: 34,
     paddingLeft: 16,
-    paddingRight: 16,
+    paddingRight: 16
   }
 });
 

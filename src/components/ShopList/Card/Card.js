@@ -15,7 +15,6 @@ const Card = ({ title, points, src }) => {
 
 const styles = StyleSheet.create({
   view: {
-    // flex: 1,
     flexDirection: 'column',
     borderWidth: 2,
     borderRadius: 4,
@@ -46,6 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 'auto',
     height: 100,
+    marginBottom: 7
   }
 });
 
