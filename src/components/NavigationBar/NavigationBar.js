@@ -1,88 +1,34 @@
-import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
-import { MaterialCommunityIcons, Ionicons, Feather } from '@expo/vector-icons'; 
-import uuid from 'react-native-uuid';
+import React, { useState } from 'react';
+import { StyleSheet, View, Image, Modal, TouchableOpacity, TouchableWithoutFeedback, Text } from 'react-native';
 
-const NavigationBar = ({ state, descriptors, navigation }) => {
+import UserQRCode from '../UserQRCode/UserQRCode';
+
+const NavigationBar = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   return (
     <View style={styles.view}>
-      <Image 
-        style={styles.profileImage}
-        source={require('../../assets/dummyProfile.png')}
-      />
-      <Image 
-        style={styles.qrIcon}
-        source={require('../../assets/qrIcon.png')}
-      />
-      {/* <TouchableOpacity
-        key={uuid.v4()}
-        accessibilityRole="button"
-        accessibilityState={isFocused ? { selected: true } : {}}
-        accessibilityLabel={options.tabBarAccessibilityLabel}
-        testID={options.tabBarTestID}
-        onPress={onPress}
-        onLongPress={onLongPress}
-        style={styles.tabButton}
+      <TouchableOpacity>
+        <Image style={styles.profileImage} source={require('../../assets/profileImage.png')} />
+      </TouchableOpacity>
+      <Modal
+        transparent={true}
+        visible={isModalVisible}
+        onRequestClose={() => setIsModalVisible(false)}
       >
-        <View style={styles.icon}>{icon[label]}</View>
-        <Text style={styles.tabButtonText}>{label.toUpperCase()}</Text>
-      </TouchableOpacity> */}
+        <TouchableOpacity style={styles.centeredView} onPressOut={() => setIsModalVisible(false)}>
+          <TouchableWithoutFeedback>
+            <View style={styles.modal}>
+              <Text style={styles.modalText}>Member Code</Text>
+              <UserQRCode />
+            </View>
+          </TouchableWithoutFeedback>
+        </TouchableOpacity>
+      </Modal>
+      <TouchableOpacity onPress={() => setIsModalVisible(true)}>
+        <Image style={styles.qrIcon} source={require('../../assets/qrIcon.png')} />
+      </TouchableOpacity>
     </View>
-    // <View style={styles.customTabBar}>
-    //   {state.routes.map((route, index) => {
-    //     const { options } = descriptors[route.key];
-    //     const label =
-    //       options.tabBarLabel !== undefined
-    //         ? options.tabBarLabel
-    //         : options.title !== undefined
-    //         ? options.title
-    //         : route.name;
-
-    //     const icon = {
-    //       'Home': <MaterialCommunityIcons name="gamepad-round-outline" size={26} color="black" />,
-    //       'Profile': <Feather name="user" size={26} color="black" />,
-    //       'Scan': <Ionicons name="md-scan-sharp" size={26} color="black" />
-    //     }
-
-    //     const isFocused = state.index === index;
-
-    //     const onPress = () => {
-    //       const event = navigation.emit({
-    //         type: 'tabPress',
-    //         target: route.key,
-    //         canPreventDefault: true,
-    //       });
-
-    //       if (!isFocused && !event.defaultPrevented) {
-    //         // The `merge: true` option makes sure that the params inside the tab screen are preserved
-    //         navigation.navigate({ name: route.name, merge: true });
-    //       }
-    //     };
-
-    //     const onLongPress = () => {
-    //       navigation.emit({
-    //         type: 'tabLongPress',
-    //         target: route.key,
-    //       });
-    //     };
-
-    //     return (
-    //       <TouchableOpacity
-    //         key={uuid.v4()}
-    //         accessibilityRole="button"
-    //         accessibilityState={isFocused ? { selected: true } : {}}
-    //         accessibilityLabel={options.tabBarAccessibilityLabel}
-    //         testID={options.tabBarTestID}
-    //         onPress={onPress}
-    //         onLongPress={onLongPress}
-    //         style={styles.tabButton}
-    //       >
-    //         <View style={styles.icon}>{icon[label]}</View>
-    //         <Text style={styles.tabButtonText}>{label.toUpperCase()}</Text>
-    //       </TouchableOpacity>
-    //     );
-    //   })}
-    //</View>
   );
 }
 
@@ -114,6 +60,25 @@ const styles = StyleSheet.create({
   qrIcon: {
     width: 28,
     height: 28
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(6, 6, 6, 0.5)'
+  },
+  modal: {
+    padding: 50,
+    backgroundColor: '#222226',
+    borderRadius: 4,
+    justifyContent: 'center'
+  },
+  modalText: {
+    textAlign: 'center',
+    fontSize: 18,
+    color: '#fff',
+    marginBottom: 30,
+    fontFamily: 'SpaceMono_700Bold'
   }
 });
 

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
 const Bar = ({ title, points, file }) => {
-
   return (
     <View style={styles.view}>
       <Image source={file} />
@@ -27,7 +26,8 @@ const styles = StyleSheet.create({
     borderColor: '#2D2D33',
     paddingVertical: 19,
     paddingHorizontal: 18,
-    marginBottom: 8
+    marginBottom: 8,
+    maxHeight: 66
   },
   textView: {
     flex: 1,
